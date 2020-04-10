@@ -1,7 +1,5 @@
 # rrey/terraform-runner
 
-## Description
-
 This docker image aims at being a CI runner allowing to handle Terraform content.
 The image contains the Terraform cli and other opinionated cool tools around Terraform like:
 
