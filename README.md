@@ -6,6 +6,8 @@ The image contains the Terraform cli and other opinionated cool tools around Ter
 - [Terragrunt](https://terragrunt.gruntwork.io/) : A wrapper for Terraform that ease layering.
 - [Kitchen-Terraform](https://github.com/newcontext-oss/kitchen-terraform) : A Test Kitchen plugin allowing to handle Terraform testing
 - [Inspec](https://www.inspec.io) : The Chef Compliance as code test framework
+- [Open Policy Agent](https://www.openpolicyagent.org/) : Open Policy Angenta, policy-based control through tfstate
+- [conftest](https://github.com/instrumenta/conftest) : Run OPA tests through conftest to ease feedback interpretation
 
 ## Other useful tools around Terraform
 
