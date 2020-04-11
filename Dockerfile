@@ -1,18 +1,6 @@
-FROM alpine:3.11
+FROM ubuntu:19.10
 
-RUN apk --no-cache add bash \
-          ca-certificates   \
-          git               \
-          openssh-client    \
-          gcc               \
-          libc-dev          \
-          libstdc++         \
-          make              \
-          ruby              \
-          ruby-dev          \
-          ruby-etc          \
-          ruby-rdoc         \
-          && rm -rf /var/cache/apk/*
+RUN apt update && apt install -y ruby ruby-dev build-essential wget
 
 COPY Gemfile .
 RUN gem install bundler
@@ -32,3 +20,14 @@ RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform
     chmod 755 /usr/bin/terraform && \
     rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
+ENV OPA_VERSION=0.18.0
+
+RUN wget https://github.com/open-policy-agent/opa/releases/download/v${OPA_VERSION}/opa_linux_amd64 && \
+    mv opa_linux_amd64 /usr/bin/opa && \
+    chmod 755 /usr/bin/opa
+
+ENV CONFTEST_VERSION=0.18.1
+
+RUN wget https://github.com/instrumenta/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_linux_amd64.deb && \
+    dpkg -i conftest_${CONFTEST_VERSION}_linux_amd64.deb && \
+    rm conftest_${CONFTEST_VERSION}_linux_amd64.deb
