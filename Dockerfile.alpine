@@ -18,8 +18,7 @@ RUN curl -fsSL -o /usr/local/bin/terragrunt \
 ENV TERRAFORM_VERSION=0.12.24
 RUN curl -fsSL -O https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
-    mv terraform /usr/local/bin/ && \
-    rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+    mv terraform /usr/local/bin/
 
 ENV OPA_VERSION=0.19.1
 WORKDIR /opa-build
