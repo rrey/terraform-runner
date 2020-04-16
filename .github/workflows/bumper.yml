@@ -1,0 +1,28 @@
+name: Bump versions in Dockerfile when detecting newer release
+
+on:
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run bumper.sh
+      run: ./hacks/bumper.sh
+      
+    #- name: Create commits
+    #  run: |
+    #      git config user.name 'Automatic bumper'
+    #      git config user.email 'rrey94@gmail.com'
+    #      git add Dockerfile
+    #      git commit -m "Automatic versions update"
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v2
+      with:
+        title: "Automatic versions update"
+        assignees: "rrey"
+        base: "master"
