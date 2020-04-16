@@ -12,17 +12,17 @@ RUN apk add --no-cache --update \
     curl
 
 ENV TERRAGRUNT_VERSION=0.23.8
-ENV TERRAGRUNT_SHA256SUM=659e013f303dacef05fae804bbcfb95ef07033b4303d57be43220422a8d447ff
-RUN curl -fsSL -O https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 && \
-    echo "${TERRAGRUNT_SHA256SUM}  terragrunt_linux_amd64" > terragrunt_${TERRAGRUNT_VERSION}_SHA256SUMS && \
-    sha256sum -c terragrunt_${TERRAGRUNT_VERSION}_SHA256SUMS && \
+ENV TERRAGRUNT_DOWNLOAD_URL=https://github.com/gruntwork-io/terragrunt/releases/download
+RUN curl -fsSL -O ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 && \
+    curl -fsSL ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/SHA256SUMS | grep terragrunt_linux_amd64 > SHA256SUMS && \
+    sha256sum -c SHA256SUMS && \
     mv terragrunt_linux_amd64 /usr/local/bin/terragrunt
 
 ENV TERRAFORM_VERSION=0.12.24
-ENV TERRAFORM_SHA256SUM=602d2529aafdaa0f605c06adb7c72cfb585d8aa19b3f4d8d189b42589e27bf11
-RUN curl -fsSL -O https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
-    echo "${TERRAFORM_SHA256SUM}  terraform_${TERRAFORM_VERSION}_linux_amd64.zip" > terraform_${TERRAFORM_VERSION}_SHA256SUMS && \
-    sha256sum -c terraform_${TERRAFORM_VERSION}_SHA256SUMS && \
+ENV TERRAFORM_RELEASE_URL=https://releases.hashicorp.com/terraform
+RUN curl -fsSL -O ${TERRAFORM_RELEASE_URL}/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+    curl -fsSL ${TERRAFORM_RELEASE_URL}/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_SHA256SUMS | grep terraform_${TERRAFORM_VERSION}_linux_amd64.zip > SHA256SUMS && \
+    sha256sum -c SHA256SUMS && \
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     mv terraform /usr/local/bin/
 
@@ -33,10 +33,10 @@ RUN curl -fsSL "https://codeload.github.com/open-policy-agent/opa/tar.gz/v${OPA_
     mv opa /usr/local/bin/
 
 ENV CONFTEST_VERSION=0.18.1
-ENV CONFTEST_SHA256SUM=f6e0d03e9232770a7c8d5b17a5587f9e5290907bf470136f4db777b8b049a44d
-RUN curl -fsSL -O https://github.com/instrumenta/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
-    echo "${CONFTEST_SHA256SUM}  conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz" > conftest_${CONFTEST_VERSION}_SHA256SUMS && \
-    sha256sum -c conftest_${CONFTEST_VERSION}_SHA256SUMS && \
+ENV CONFTEST_DOWNLOAD_URL=https://github.com/instrumenta/conftest/releases/download
+RUN curl -fsSL -O ${CONFTEST_DOWNLOAD_URL}/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
+    curl -fsSL ${CONFTEST_DOWNLOAD_URL}/v${CONFTEST_VERSION}/checksums.txt | grep conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz > checksums.txt && \
+    sha256sum -c checksums.txt && \
     tar xz conftest -C /usr/local/bin/ -f conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 
 RUN strip --strip-all /usr/local/bin/* && \
