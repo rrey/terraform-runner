@@ -49,7 +49,7 @@ COPY --from=gobuilder /usr/local/bin/ /usr/bin/
 COPY Gemfile .
 
 RUN apk add --no-cache --update \
-    ruby && \
+    ruby ruby-webrick ruby-etc ruby-io-console && \
     apk add --no-cache --update --virtual build-dependencies \
     build-base \
     ruby-dev && \
