@@ -50,7 +50,7 @@ COPY Gemfile .
 
 RUN apk add --no-cache --update \
     ruby ruby-webrick ruby-etc ruby-io-console && \
-    apk add --no-cache --update --virtual build-dependencies \
+    apk add --no-cache --update --virtual build-dependencies bash \
     build-base \
     ruby-dev && \
     gem install bundler && \
