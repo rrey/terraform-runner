@@ -11,7 +11,7 @@ RUN apk add --no-cache --update \
     ca-certificates \
     curl
 
-ENV TERRAGRUNT_VERSION=0.23.10
+ENV TERRAGRUNT_VERSION=0.23.12
 ENV TERRAGRUNT_DOWNLOAD_URL=https://github.com/gruntwork-io/terragrunt/releases/download
 RUN curl -fsSL -O ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 && \
     curl -fsSL ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/SHA256SUMS | grep terragrunt_linux_amd64 > SHA256SUMS && \
@@ -26,13 +26,13 @@ RUN curl -fsSL -O ${TERRAFORM_RELEASE_URL}/${TERRAFORM_VERSION}/terraform_${TERR
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     mv terraform /usr/local/bin/
 
-ENV OPA_VERSION=0.19.1
+ENV OPA_VERSION=0.19.2
 WORKDIR /opa-build
 RUN curl -fsSL "https://codeload.github.com/open-policy-agent/opa/tar.gz/v${OPA_VERSION}" | tar xvz --strip-components=1 && \
     go build && \
     mv opa /usr/local/bin/
 
-ENV CONFTEST_VERSION=0.18.1
+ENV CONFTEST_VERSION=0.18.2
 ENV CONFTEST_DOWNLOAD_URL=https://github.com/instrumenta/conftest/releases/download
 RUN curl -fsSL -O ${CONFTEST_DOWNLOAD_URL}/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     curl -fsSL ${CONFTEST_DOWNLOAD_URL}/v${CONFTEST_VERSION}/checksums.txt | grep conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz > checksums.txt && \
