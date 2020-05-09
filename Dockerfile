@@ -11,7 +11,7 @@ RUN apk add --no-cache --update \
     ca-certificates \
     curl
 
-ENV TERRAGRUNT_VERSION=0.23.14
+ENV TERRAGRUNT_VERSION=0.23.15
 ENV TERRAGRUNT_DOWNLOAD_URL=https://github.com/gruntwork-io/terragrunt/releases/download
 RUN curl -fsSL -O ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 && \
     curl -fsSL ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/SHA256SUMS | grep terragrunt_linux_amd64 > SHA256SUMS && \
