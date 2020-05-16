@@ -1,8 +1,8 @@
 # rrey/terraform-runner
 
 ![Build](https://github.com/rrey/terraform-runner/workflows/Docker%20Image%20CI/badge.svg)
-![](https://img.shields.io/badge/Terraform-0.12.24-blueviolet)
-![](https://img.shields.io/badge/Terragrunt-0.23.17-blue)
+![](https://img.shields.io/badge/Terraform-0.12.25-blueviolet)
+![](https://img.shields.io/badge/Terragrunt-0.23.18-blue)
 ![](https://img.shields.io/badge/opa-0.19.2-lightgrey)
 ![](https://img.shields.io/badge/conftest-0.18.2-blue)
 
