@@ -1,0 +1,22 @@
+{
+    "terraform": {
+        "version_regex": "s/ENV TERRAFORM_VERSION=.*$/ENV TERRAFORM_VERSION=${latest}/",
+        "badge_regex": "s/Terraform-.*-blueviolet/Terraform-${latest}-blueviolet/",
+        "repo_url": "https://api.github.com/repos/hashicorp/terraform/releases/latest"
+    },
+    "terragrunt": {
+        "version_regex": "s/ENV TERRAGRUNT_VERSION=.*$/ENV TERRAGRUNT_VERSION=$latest/",
+        "badge_regex": "s/Terragrunt-.*-blue/Terragrunt-$latest-blue/",
+        "repo_url": "https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest"
+    },
+    "opa": {
+        "version_regex": "s/ENV OPA_VERSION=.*$/ENV OPA_VERSION=$latest/",
+        "badge_regex": "s/opa-.*-lightgrey/opa-$latest-lightgrey/",
+        "repo_url": "https://api.github.com/repos/open-policy-agent/opa/releases/latest"
+    },
+    "conftest": {
+        "version_regex": "s/ENV CONFTEST_VERSION=.*$/ENV CONFTEST_VERSION=$latest/",
+        "badge_regex": "s/conftest-.*-blue/conftest-$latest-blue/",
+        "repo_url": "https://api.github.com/repos/instrumenta/conftest/releases/latest"
+    }
+}
