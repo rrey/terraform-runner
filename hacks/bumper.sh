@@ -4,22 +4,22 @@ DOCKERFILE_PATH="$(git rev-parse --show-toplevel)/Dockerfile"
 README_PATH="$(git rev-parse --show-toplevel)/README.md"
 
 function get_terraform_latest() {
-    terraform_latest=$(curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest |jq -r .tag_name)
+    terraform_latest=$(curl -Ls https://api.github.com/repos/hashicorp/terraform/releases/latest |jq -r .tag_name)
     terraform_latest=${terraform_latest//v}
 }
 
 function get_terragrunt_latest() {
-    terragrunt_latest=$(curl -s https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest |jq -r .tag_name)
+    terragrunt_latest=$(curl -Ls https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest |jq -r .tag_name)
     terragrunt_latest=${terragrunt_latest//v}
 }
 
 function get_conftest_latest() {
-    conftest_latest=$(curl -s https://api.github.com/repos/instrumenta/conftest/releases/latest |jq -r .tag_name)
+    conftest_latest=$(curl -Ls https://api.github.com/repos/instrumenta/conftest/releases/latest |jq -r .tag_name)
     conftest_latest=${conftest_latest//v}
 }
 
 function get_opa_latest() {
-    opa_latest=$(curl -s https://api.github.com/repos/open-policy-agent/opa/releases/latest |jq -r .tag_name)
+    opa_latest=$(curl -Ls https://api.github.com/repos/open-policy-agent/opa/releases/latest |jq -r .tag_name)
     opa_latest=${opa_latest//v}
 }
 
