@@ -2,8 +2,8 @@
 
 ![Build](https://github.com/rrey/terraform-runner/workflows/Docker%20Image%20CI/badge.svg)
 ![](https://img.shields.io/badge/Terraform-0.12.25-blueviolet)
-![](https://img.shields.io/badge/Terragrunt-0.23.18-blue)
-![](https://img.shields.io/badge/opa-0.19.2-lightgrey)
+![](https://img.shields.io/badge/Terragrunt-0.23.20-blue)
+![](https://img.shields.io/badge/opa-0.20.4-lightgrey)
 ![](https://img.shields.io/badge/conftest-0.18.2-blue)
 
 This docker image aims at being a CI runner allowing to handle Terraform content.
