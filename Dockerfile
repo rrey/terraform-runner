@@ -11,7 +11,7 @@ RUN apk add --no-cache --update \
     ca-certificates \
     curl
 
-ENV TERRAGRUNT_VERSION=0.23.18
+ENV TERRAGRUNT_VERSION=0.23.20
 ENV TERRAGRUNT_DOWNLOAD_URL=https://github.com/gruntwork-io/terragrunt/releases/download
 RUN curl -fsSL -O ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 && \
     curl -fsSL ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/SHA256SUMS | grep terragrunt_linux_amd64 > SHA256SUMS && \
@@ -26,7 +26,7 @@ RUN curl -fsSL -O ${TERRAFORM_RELEASE_URL}/${TERRAFORM_VERSION}/terraform_${TERR
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     mv terraform /usr/local/bin/
 
-ENV OPA_VERSION=0.19.2
+ENV OPA_VERSION=0.20.4
 WORKDIR /opa-build
 RUN curl -fsSL "https://codeload.github.com/open-policy-agent/opa/tar.gz/v${OPA_VERSION}" | tar xvz --strip-components=1 && \
     go build && \
