@@ -18,7 +18,7 @@ RUN curl -fsSL -O ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/terragrunt_l
     sha256sum -c SHA256SUMS && \
     mv terragrunt_linux_amd64 /usr/local/bin/terragrunt
 
-ENV TERRAFORM_VERSION=0.12.25
+ENV TERRAFORM_VERSION=0.12.26
 ENV TERRAFORM_RELEASE_URL=https://releases.hashicorp.com/terraform
 RUN curl -fsSL -O ${TERRAFORM_RELEASE_URL}/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     curl -fsSL ${TERRAFORM_RELEASE_URL}/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_SHA256SUMS | grep terraform_${TERRAFORM_VERSION}_linux_amd64.zip > SHA256SUMS && \
