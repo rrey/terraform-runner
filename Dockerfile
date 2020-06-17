@@ -27,13 +27,13 @@ RUN curl -fsSL -O ${TERRAFORM_RELEASE_URL}/${TERRAFORM_VERSION}/terraform_${TERR
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     mv terraform /usr/local/bin/
 
-ENV OPA_VERSION=0.20.5
+ENV OPA_VERSION=0.21.0
 WORKDIR /opa-build
 RUN curl -fsSL "https://codeload.github.com/open-policy-agent/opa/tar.gz/v${OPA_VERSION}" | tar xvz --strip-components=1 && \
     go build && \
     mv opa /usr/local/bin/
 
-ENV CONFTEST_VERSION=0.18.2
+ENV CONFTEST_VERSION=0.19.0
 ENV CONFTEST_DOWNLOAD_URL=https://github.com/instrumenta/conftest/releases/download
 RUN curl -fsSL -O ${CONFTEST_DOWNLOAD_URL}/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     curl -fsSL ${CONFTEST_DOWNLOAD_URL}/v${CONFTEST_VERSION}/checksums.txt | grep conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz > checksums.txt && \
