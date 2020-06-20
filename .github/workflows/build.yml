@@ -9,10 +9,16 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag rrey/terraform-runner:$(git rev-parse --short HEAD)
+
+  azdo-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build the Docker image
+      run: docker build . --build-arg BASE_IMG=rrey/azdo-base-container:v0.1.2 --file Dockerfile --tag rrey/terraform-runner:$(git rev-parse --short HEAD)-azdo
