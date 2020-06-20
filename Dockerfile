@@ -1,3 +1,4 @@
+ARG BASE_IMG=alpine:3.11.5
 FROM golang:1.14.2-alpine3.11 as gobuilder
 
 ARG GOOS=linux
@@ -42,7 +43,7 @@ RUN curl -fsSL -O ${CONFTEST_DOWNLOAD_URL}/v${CONFTEST_VERSION}/conftest_${CONFT
 RUN strip --strip-all /usr/local/bin/* && \
     chmod 0755 /usr/local/bin/*
 
-FROM alpine:3.11.5
+FROM ${BASE_IMG}
 LABEL maintainer="Rémi REY <rrey94@gmail.com>"
 
 COPY --from=gobuilder /usr/local/bin/ /usr/bin/
