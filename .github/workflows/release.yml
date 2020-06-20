@@ -5,7 +5,6 @@ on:
     types: [published]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -33,6 +32,6 @@ jobs:
     - name: Push the image
       run: |
           docker login -u rrey -p $DOCKERHUB_TOKEN
-          docker push rrey/terraform-runner:$(git tag --points-at HEAD)
+          docker push rrey/terraform-runner:$(git tag --points-at HEAD)-azdo
       env:
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
