@@ -13,13 +13,14 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag rrey/terraform-runner:$(git tag --points-at HEAD)
 
-    - name: Push the image
-      run: |
-          docker login -u rrey -p $DOCKERHUB_TOKEN
-          docker push rrey/terraform-runner:$(git tag --points-at HEAD)
+    - name: login to dockerhub
+      run: docker login -u rrey -p $DOCKERHUB_TOKEN
       env:
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    - name: Push the image
+      run: |
+          docker push rrey/terraform-runner:$(git tag --points-at HEAD)
 
   azdo-build:
     runs-on: ubuntu-latest
@@ -29,9 +30,11 @@ jobs:
     - name: Build the Docker image
       run: docker build . --build-arg BASE_IMG=rrey/azdo-base-container:v0.1.2 --file Dockerfile --tag rrey/terraform-runner:$(git tag --points-at HEAD)-azdo
 
-    - name: Push the image
+    - name: login to dockerhub
       run: |
           docker login -u rrey -p $DOCKERHUB_TOKEN
-          docker push rrey/terraform-runner:$(git tag --points-at HEAD)-azdo
       env:
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Push the image
+      run: docker push rrey/terraform-runner:$(git tag --points-at HEAD)-azdo
