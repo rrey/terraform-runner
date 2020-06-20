@@ -16,6 +16,13 @@ The image contains opinionated cool tools around Terraform like:
 - [Open Policy Agent](https://www.openpolicyagent.org/) : Open Policy Agent, policy-based control through Terraform plan
 - [conftest](https://github.com/instrumenta/conftest) : Run OPA tests through conftest to ease feedback interpretation
 
+## Tags
+
+This image has different tag strategies:
+
+* `vX.Y.Z`: Regular SemVer tag with alpine base image.
+* `vX.Y.Z-azdo`: Image based on [rre/azdo-base-container](https://hub.docker.com/repository/docker/rrey/azdo-base-container) making the image usable on azure devops.
+
 ## Other useful tools around Terraform (not in this image)
 
 * [terraform-docs](https://github.com/segmentio/terraform-docs): Get rid of modules documentation gruntwork by using a cli that reads your code and generate a clean markdown (among other formats) documentation.
