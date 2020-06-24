@@ -50,7 +50,7 @@ COPY --from=gobuilder /usr/local/bin/ /usr/bin/
 COPY Gemfile .
 
 RUN apk add --no-cache --update \
-    ruby ruby-webrick ruby-etc ruby-io-console bash && \
+    ruby ruby-webrick ruby-etc ruby-io-console bash docker && \
     apk add --no-cache --update --virtual build-dependencies \
     build-base \
     ruby-dev && \
