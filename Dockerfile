@@ -27,7 +27,7 @@ RUN curl -fsSL -O ${TERRAFORM_RELEASE_URL}/${TERRAFORM_VERSION}/terraform_${TERR
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     mv terraform /usr/local/bin/
 
-ENV OPA_VERSION=0.22.0
+ENV OPA_VERSION=0.23.1
 WORKDIR /opa-build
 RUN curl -fsSL "https://codeload.github.com/open-policy-agent/opa/tar.gz/v${OPA_VERSION}" | tar xvz --strip-components=1 && \
     go build && \
