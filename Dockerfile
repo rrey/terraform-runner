@@ -12,14 +12,14 @@ RUN apk add --no-cache --update \
     ca-certificates \
     curl
 
-ENV TERRAGRUNT_VERSION=0.23.38
+ENV TERRAGRUNT_VERSION=0.24.1
 ENV TERRAGRUNT_DOWNLOAD_URL=https://github.com/gruntwork-io/terragrunt/releases/download
 RUN curl -fsSL -O ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 && \
     curl -fsSL ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/SHA256SUMS | grep terragrunt_linux_amd64 > SHA256SUMS && \
     sha256sum -c SHA256SUMS && \
     mv terragrunt_linux_amd64 /usr/local/bin/terragrunt
 
-ENV TERRAFORM_VERSION=0.13.1
+ENV TERRAFORM_VERSION=0.13.2
 ENV TERRAFORM_RELEASE_URL=https://releases.hashicorp.com/terraform
 RUN curl -fsSL -O ${TERRAFORM_RELEASE_URL}/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     curl -fsSL ${TERRAFORM_RELEASE_URL}/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_SHA256SUMS | grep terraform_${TERRAFORM_VERSION}_linux_amd64.zip > SHA256SUMS && \
