@@ -28,4 +28,4 @@ This image has different tag strategies:
 ## Other useful tools around Terraform (not in this image)
 
 * [terraform-docs](https://github.com/segmentio/terraform-docs): Get rid of modules documentation gruntwork by using a cli that reads your code and generate a clean markdown (among other formats) documentation.
-* [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)
+* [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform): Add Git hooks on your repository to be sure that command are executed.
