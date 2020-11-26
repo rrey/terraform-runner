@@ -12,7 +12,7 @@ RUN apk add --no-cache --update \
     ca-certificates \
     curl
 
-ENV TERRAGRUNT_VERSION=0.26.2
+ENV TERRAGRUNT_VERSION=0.26.7
 ENV TERRAGRUNT_DOWNLOAD_URL=https://github.com/gruntwork-io/terragrunt/releases/download
 RUN curl -fsSL -O ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 && \
     curl -fsSL ${TERRAGRUNT_DOWNLOAD_URL}/v${TERRAGRUNT_VERSION}/SHA256SUMS | grep terragrunt_linux_amd64 > SHA256SUMS && \
@@ -33,7 +33,7 @@ RUN curl -fsSL "https://codeload.github.com/open-policy-agent/opa/tar.gz/v${OPA_
     go build && \
     mv opa /usr/local/bin/
 
-ENV CONFTEST_VERSION=0.21.0
+ENV CONFTEST_VERSION=0.22.0
 ENV CONFTEST_DOWNLOAD_URL=https://github.com/instrumenta/conftest/releases/download
 RUN curl -fsSL -O ${CONFTEST_DOWNLOAD_URL}/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     curl -fsSL ${CONFTEST_DOWNLOAD_URL}/v${CONFTEST_VERSION}/checksums.txt | grep conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz > checksums.txt && \
