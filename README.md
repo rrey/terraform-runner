@@ -16,6 +16,8 @@ The image contains opinionated cool tools around Terraform like:
 - [Open Policy Agent](https://www.openpolicyagent.org/) : Open Policy Agent, policy-based control through Terraform plan
 - [conftest](https://github.com/instrumenta/conftest) : Run OPA tests through conftest to ease feedback interpretation
 
+See it in action [here](https://github.com/rrey/terraform-test-sample/blob/master/.github/workflows/ci.yml)
+
 ## Tags
 
 This image has different tag strategies:
