@@ -1,10 +1,10 @@
 # rrey/terraform-runner
 
 ![Build](https://github.com/rrey/terraform-runner/workflows/Docker%20Image%20CI/badge.svg)
-![](https://img.shields.io/badge/Terraform-1.0.2-blueviolet)
-![](https://img.shields.io/badge/Terragrunt-0.31.0-blue)
-![](https://img.shields.io/badge/opa-0.30.2-lightgrey)
-![](https://img.shields.io/badge/conftest-0.25.0-blue)
+![](https://img.shields.io/badge/Terraform-1.0.6-blueviolet)
+![](https://img.shields.io/badge/Terragrunt-0.31.8-blue)
+![](https://img.shields.io/badge/opa-0.32.0-lightgrey)
+![](https://img.shields.io/badge/conftest-0.27.0-blue)
 
 This docker image aims at being a CI runner allowing to handle Terraform content.
 The image contains opinionated cool tools around Terraform like:
